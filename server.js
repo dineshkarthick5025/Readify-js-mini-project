@@ -1,3 +1,4 @@
+const catalyst = require("zcatalyst-sdk-node");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -5,7 +6,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.X_ZOHO_CATALYST_LISTEN_PORT || 5001;
 
 // Middleware
 app.use(cors());
@@ -20,7 +21,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/contactDB", {
 const db = mongoose.connection;
 db.once("open", () => console.log("MongoDB connected"));
 
-// Create a Schema & Model for Contact Messages
+// Define Schema & Model for Contact Messages
 const contactSchema = new mongoose.Schema({
   name: String,
   email: String,
@@ -29,7 +30,7 @@ const contactSchema = new mongoose.Schema({
 
 const Contact = mongoose.model("Contact", contactSchema);
 
-// API Route to Handle Form Submission
+// API Route for Form Submission
 app.post("/send-message", async (req, res) => {
   try {
     const { name, email, message } = req.body;
@@ -41,5 +42,7 @@ app.post("/send-message", async (req, res) => {
   }
 });
 
-// Start Server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Export the Express app as a Catalyst function
+module.exports = (req, res) => {
+  return app(req, res);
+};
