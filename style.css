@@ -1,0 +1,244 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background and Global Styling */
+body {
+    background: linear-gradient(135deg, #ece9e6, #ffffff);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+/* Navbar Styling */
+.navbar {
+    background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+    padding: 15px 20px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: flex;
+}
+.navbar h1 {
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    
+    display: inline-block;
+}
+
+/* Container Styling */
+.container {
+    margin: 20px auto;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Book Container Styling */
+.book-container {
+    padding: 20px;
+    width: 300px;
+    background: linear-gradient(135deg, #2b5876, #4e4376);
+    color: white;
+    border-radius: 15px;
+    margin: 15px;
+    display: inline-block;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.book-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+.book-container h2 {
+    color: #fda085;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.book-container h5 {
+    color: #fad0c4;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.book-container p {
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+.book-container button {
+    background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+.book-container button:hover {
+    background: linear-gradient(90deg, #fad0c4, #ff9a9e);
+    transform: scale(1.05);
+}
+
+/* Add Button Styling */
+.add-button {
+    background: linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%);
+    color: white;
+    border-radius: 50%;
+    padding: 20px 30px;
+    font-size: 40px;
+    text-align: center;
+    border: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+.add-button:hover {
+    background: linear-gradient(90deg, #8fd3f4, #84fab0);
+    transform: rotate(360deg) scale(1.1);
+}
+
+/* Popup Overlay */
+.popup-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: none;
+}
+
+/* Popup Box Styling */
+.popup-box {
+    background: linear-gradient(135deg, #f9f9f9, #ece9e6);
+    width: 40%;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 6;
+    transition: transform 0.3s ease-out;
+}
+.popup-box.show {
+    transform: translate(-50%, -50%) scale(1);
+}
+.popup-box input, .popup-box textarea {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+}
+.popup-box input:focus, .popup-box textarea:focus {
+    outline: none;
+    border-color: #fda085;
+}
+.popup-box button {
+    background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.popup-box button:hover {
+    background: linear-gradient(90deg, #fad0c4, #ff9a9e);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .book-container {
+        width: 90%;
+    }
+    .popup-box {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+
+
+/*styling for serach bar*/
+/* Container for alignment */
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    padding-left: 30px;
+}
+
+/* Search bar input */
+.search-bar {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 25px 0 0 25px; /* Rounded left corners */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    
+}
+
+/* Focus effect */
+.search-bar:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Button */
+.search-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-left: none; /* Remove overlapping border */
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 0 25px 25px 0; /* Rounded right corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    
+}
+
+/* Hover effect for button */
+.search-btn:hover {
+    background-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 500px) {
+    .search-bar {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .search-btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
